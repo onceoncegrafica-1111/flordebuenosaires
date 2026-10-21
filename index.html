@@ -6,8 +6,9 @@
     <title>Flor de Buenos Aires | Paseos, Escapadas y Viajes</title>
     <meta name="description" content="Paseos por el día, escapadas de fin de semana y viajes grupales por Buenos Aires y Argentina. Salidas programadas y atención personalizada.">
 
-    <!-- PRELOAD DE AUDIO DE INTERACCIÓN -->
+    <!-- PRELOAD DE AUDIOS DE INTERACCIÓN Y VICTORIA -->
     <link rel="preload" as="audio" href="gran-turismo-7-_-gran-turismo-sport-menu-made-with-Voicemod.mp3">
+    <link rel="preload" as="audio" href="05.%20Coffee%20Break%20Finish%20(Gold).mp3">
 
     <!-- TIPOGRAFÍAS CORPORATIVAS EXACTAS (ASTRA & ELEMENTOR) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -890,8 +891,9 @@
 </head>
 <body>
 
-    <!-- REPRODUCTOR DE AUDIO NATIVO PRECARGADO -->
+    <!-- REPRODUCTORES DE AUDIO PRECARGADOS (BOTONES & FANFARRIA VICTORIA) -->
     <audio id="fdbaButtonSound" src="gran-turismo-7-_-gran-turismo-sport-menu-made-with-Voicemod.mp3" preload="auto"></audio>
+    <audio id="fdbaWinSound" src="05.%20Coffee%20Break%20Finish%20(Gold).mp3" preload="auto"></audio>
 
     <!-- FONDOS AMBIENTALES -->
     <div class="ambient-canvas-gradient"></div>
@@ -1164,15 +1166,17 @@
             <div class="spin-prize-display" id="prizeDisplay">
                 <span style="font-size: 0.72rem; font-weight: 800; color: var(--fdba-navy); text-transform: uppercase;">¡Felicitaciones, ganaste!</span>
                 <span id="prizeTitle" style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 800; color: var(--fdba-magenta);"></span>
-                <a id="claimPrizeBtn" href="#" target="_blank" rel="noopener noreferrer" style="background:#25D366; color:#fff; text-decoration:none; padding:8px 16px; border-radius:8px; font-weight:700; font-size:0.8rem; margin-top:4px;">Canjear por WhatsApp ↗</a>
+                <a id="claimPrizeBtn" href="#" target="_blank" rel="noopener noreferrer" style="background:#25D366; color:#fff; text-decoration:none; padding:8px 16px; border-radius:8px; font-weight:700; font-size:0.8rem; margin-top:4px;" onclick="handleClaimPrize()">Canjear por WhatsApp ↗</a>
             </div>
         </div>
     </div>
 
-    <!-- MOTOR JS: AUDIO DE NAVEGACIÓN, MAPA, FILTRADO Y RULETA -->
+    <!-- MOTOR JS: AUDIOS, MAPA, FILTRADO Y RULETA -->
     <script>
-        // 1. MOTOR DE AUDIO HÁPTICO PARA BOTONES Y TABS
+        // 1. MOTORES DE AUDIO NATIVOS: BOTONES Y FANFARRIA GOLD
         const soundEffect = document.getElementById('fdbaButtonSound');
+        const winSoundEffect = document.getElementById('fdbaWinSound');
+        let fadeAudioInterval = null;
 
         function playUiSound() {
             if (soundEffect) {
@@ -1182,6 +1186,33 @@
             if ('vibrate' in navigator) {
                 try { navigator.vibrate(8); } catch(e) {}
             }
+        }
+
+        function playWinFanfare() {
+            if (winSoundEffect) {
+                clearInterval(fadeAudioInterval);
+                winSoundEffect.volume = 1;
+                winSoundEffect.currentTime = 0;
+                winSoundEffect.play().catch(() => {});
+            }
+        }
+
+        // FADE OUT GRADUAL DE LA FANFARRIA AL SALIR O CANJEAR PREMIO
+        function fadeOutWinSound() {
+            if (!winSoundEffect || winSoundEffect.paused) return;
+            clearInterval(fadeAudioInterval);
+            let vol = winSoundEffect.volume;
+            fadeAudioInterval = setInterval(() => {
+                vol -= 0.08;
+                if (vol <= 0.08) {
+                    clearInterval(fadeAudioInterval);
+                    winSoundEffect.pause();
+                    winSoundEffect.currentTime = 0;
+                    winSoundEffect.volume = 1;
+                } else {
+                    winSoundEffect.volume = vol;
+                }
+            }, 30);
         }
 
         function initButtonSoundTriggers() {
@@ -1334,6 +1365,9 @@
             claimBtn.href = `https://api.whatsapp.com/send?phone=+5491144187007&text=%C2%A1Hola!%20Gané%20el%20beneficio%20de%20la%20Ruleta%3A%20${encodeURIComponent(winningPrize.label)}%20con%20el%20c%C3%B3digo%20${winningPrize.code}%20para%20mi%20pr%C3%B3xima%20reserva!`;
             prizeDisplay.style.display = "flex";
             document.getElementById('spinBtn').style.display = "none";
+
+            // REPRODUCIR SONIDO COFFEE BREAK FINISH (GOLD) AL GANAR
+            playWinFanfare();
         }
 
         function easeOut(t, b, c, d) {
@@ -1342,7 +1376,7 @@
             return b + c * (tc + -3 * ts + 3 * t);
         }
 
-        // CONTROL DEL MODAL
+        // CONTROL DEL MODAL CON FADE OUT AUTOMÁTICO DE AUDIO
         function openGameModal() {
             document.getElementById('gameModal').classList.add('active');
             drawWheel();
@@ -1351,6 +1385,11 @@
         function closeGameModal(e) {
             if (e && e.stopPropagation) e.stopPropagation();
             document.getElementById('gameModal').classList.remove('active');
+            fadeOutWinSound();
+        }
+
+        function handleClaimPrize() {
+            fadeOutWinSound();
         }
 
         // INICIALIZACIÓN
