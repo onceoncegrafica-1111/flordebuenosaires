@@ -6,9 +6,8 @@
     <title>Flor de Buenos Aires | Paseos, Escapadas y Viajes</title>
     <meta name="description" content="Paseos por el día, escapadas de fin de semana y viajes grupales por Buenos Aires y Argentina. Salidas programadas y atención personalizada.">
 
-    <!-- PRELOAD DE AUDIOS DE INTERACCIÓN Y VICTORIA -->
+    <!-- PRELOAD DE AUDIO DE INTERACCIÓN -->
     <link rel="preload" as="audio" href="gran-turismo-7-_-gran-turismo-sport-menu-made-with-Voicemod.mp3">
-    <link rel="preload" as="audio" href="05.%20Coffee%20Break%20Finish%20(Gold).mp3">
 
     <!-- TIPOGRAFÍAS CORPORATIVAS EXACTAS (ASTRA & ELEMENTOR) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -174,11 +173,12 @@
             display: block;
         }
 
+        /* PRESENTACIÓN INSTITUCIONAL MODIFICADA POR CLIENTE */
         .brand-bio-box {
             background: #FFFFFF;
             border: 1.5px solid var(--fdba-border);
             border-radius: 18px;
-            padding: 12px 18px;
+            padding: 14px 18px;
             box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
             max-width: 98%;
             margin-top: 2px;
@@ -186,7 +186,7 @@
 
         .brand-bio-box p {
             font-size: 0.88rem;
-            line-height: 1.45;
+            line-height: 1.5;
             color: var(--fdba-body-text);
             font-weight: 500;
         }
@@ -324,80 +324,14 @@
         }
 
         /* ==========================================================================
-           5. GAMIFICACIÓN: RULETA DE BENEFICIOS VIAJEROS
-           ========================================================================== */
-        .card-game-trigger {
-            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
-            border: 2.5px solid #FFD043;
-            border-radius: 22px;
-            padding: 18px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: #FFFFFF;
-            cursor: pointer;
-            box-shadow: 0 14px 34px rgba(15, 23, 42, 0.35);
-            transition: all 0.22s var(--spring);
-        }
-
-        .card-game-trigger:hover {
-            transform: translateY(-3px) scale(1.015);
-            border-color: #FFFFFF;
-            box-shadow: 0 18px 40px rgba(255, 208, 67, 0.25);
-        }
-
-        .game-trigger-info {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-        }
-
-        .game-trigger-badge {
-            background: #FFD043;
-            color: #0F172A;
-            font-family: var(--font-heading);
-            font-size: 0.72rem;
-            font-weight: 800;
-            padding: 3px 8px;
-            border-radius: 6px;
-            width: fit-content;
-            text-transform: uppercase;
-        }
-
-        .game-trigger-title {
-            font-family: var(--font-heading);
-            font-size: 1.25rem;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
-
-        .game-trigger-desc {
-            font-size: 0.78rem;
-            color: #CBD5E1;
-        }
-
-        .game-trigger-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: #FFD043;
-            color: #0F172A;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 900;
-        }
-
-        /* ==========================================================================
-           6. ESPACIADO ESTRUCTURAL & BARRA DE CATEGORÍAS BIEN ENMARCADA
+           5. ZONA DE CATEGORÍAS ENMARCADA TÁCTIL
            ========================================================================== */
         .category-filter-zone {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-top: 18px;
-            margin-bottom: 4px;
+            margin-top: 6px;
+            margin-bottom: 2px;
         }
 
         .filter-section-header {
@@ -474,7 +408,7 @@
         }
 
         /* ==========================================================================
-           7. TARJETAS DE PAQUETES TURÍSTICOS
+           6. TARJETAS DE PAQUETES TURÍSTICOS
            ========================================================================== */
         .destinations-feed {
             display: flex;
@@ -661,7 +595,7 @@
         }
 
         /* ==========================================================================
-           8. MAPA OFICIAL DE LA AGENCIA (LEAFLET SAN TELMO CABA)
+           7. MAPA OFICIAL DE LA AGENCIA (LEAFLET SAN TELMO CABA)
            ========================================================================== */
         .card-map-section {
             background: #FFFFFF;
@@ -711,7 +645,7 @@
         }
 
         /* ==========================================================================
-           9. CANALES SOCIALES CON ICONO WEB REAL
+           8. CANALES SOCIALES CON ICONO WEB REAL
            ========================================================================== */
         .social-buttons-bar {
             display: flex;
@@ -775,125 +709,12 @@
             font-size: 0.72rem;
             color: var(--fdba-muted);
         }
-
-        /* MODAL DE LA RULETA */
-        .game-modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(10px);
-            z-index: 99999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.25s ease;
-        }
-
-        .game-modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .game-modal-box {
-            background: #FFFFFF;
-            border: 2.5px solid var(--fdba-magenta);
-            border-radius: 26px;
-            width: 100%;
-            max-width: 420px;
-            padding: 22px 18px 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
-        }
-
-        .btn-close-modal {
-            position: absolute;
-            top: 12px;
-            right: 14px;
-            background: #F1F5F9;
-            border: none;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            font-size: 16px;
-            font-weight: 800;
-            color: var(--fdba-navy);
-            cursor: pointer;
-        }
-
-        .wheel-container-stage {
-            position: relative;
-            width: 270px;
-            height: 270px;
-            margin: 14px 0 18px;
-        }
-
-        #wheelCanvas {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-        }
-
-        .wheel-pointer {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 14px solid transparent;
-            border-right: 14px solid transparent;
-            border-top: 24px solid var(--fdba-navy);
-            z-index: 10;
-        }
-
-        .btn-spin-wheel {
-            background: var(--fdba-magenta);
-            color: #FFFFFF;
-            border: none;
-            border-radius: 999px;
-            padding: 14px 28px;
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            cursor: pointer;
-            box-shadow: 0 8px 20px var(--fdba-magenta-glow);
-            transition: all 0.2s;
-        }
-
-        .btn-spin-wheel:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .spin-prize-display {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            margin-top: 12px;
-            padding: 12px;
-            background: #FFF0F4;
-            border: 1.5px dashed var(--fdba-magenta);
-            border-radius: 14px;
-            width: 100%;
-        }
     </style>
 </head>
 <body>
 
-    <!-- REPRODUCTORES DE AUDIO PRECARGADOS (BOTONES & FANFARRIA VICTORIA) -->
+    <!-- REPRODUCTOR DE AUDIO NATIVO PRECARGADO -->
     <audio id="fdbaButtonSound" src="gran-turismo-7-_-gran-turismo-sport-menu-made-with-Voicemod.mp3" preload="auto"></audio>
-    <audio id="fdbaWinSound" src="05.%20Coffee%20Break%20Finish%20(Gold).mp3" preload="auto"></audio>
 
     <!-- FONDOS AMBIENTALES -->
     <div class="ambient-canvas-gradient"></div>
@@ -911,9 +732,12 @@
                 <img class="brand-logo-img" src="https://www.flordebuenosaires.com.ar/wp-content/uploads/2023/02/logo-14.webp" alt="Flor de Buenos Aires - Paseos, Escapadas y Viajes" loading="eager">
             </div>
 
+            <!-- TEXTO DE PRESENTACIÓN OFICIAL EXACTO PEDIDO POR EL CLIENTE -->
             <div class="brand-bio-box">
                 <p>
-                    Especialistas en salidas grupales por Buenos Aires y destinos de toda la Argentina. Viajes en el día o con noches incluidas.
+                    Especialistas en “Salidas Grupales”.<br>
+                    Experiencias unicas, bien pensadas y con servicios impecables.<br>
+                    ¡Propuestas x Bs As, x el país y x el mundo!
                 </p>
             </div>
 
@@ -936,17 +760,7 @@
             </div>
         </a>
 
-        <!-- 3. GAMIFICACIÓN: PASAPORTE VIAJERO & RULETA DE PREMIOS -->
-        <div class="card-game-trigger" onclick="openGameModal()">
-            <div class="game-trigger-info">
-                <span class="game-trigger-badge">🎁 Pasaporte Viajero</span>
-                <span class="game-trigger-title">Ruleta de Beneficios</span>
-                <span class="game-trigger-desc">Girá y ganá hasta $20.000 de descuento en tu paseo</span>
-            </div>
-            <div class="game-trigger-icon">🎡</div>
-        </div>
-
-        <!-- 4. ZONA DE CATEGORÍAS CON AIRE VISUAL Y ENMARCADO TÁCTIL CLARO -->
+        <!-- 3. ZONA DE CATEGORÍAS ENMARCADA TÁCTIL CON AIRE ESTRUCTURAL -->
         <section class="category-filter-zone">
             <div class="filter-section-header">
                 <span class="filter-section-title">
@@ -971,7 +785,7 @@
             </div>
         </section>
 
-        <!-- 5. CATÁLOGO OFICIAL DE PAQUETES -->
+        <!-- 4. CATÁLOGO OFICIAL DE PAQUETES -->
         <section class="destinations-feed" id="destinationsFeed">
 
             <!-- TANDIL FINDE LARGO (ESCAPADAS) -->
@@ -1102,7 +916,7 @@
 
         </section>
 
-        <!-- MAPA OFICIAL DE LA AGENCIA (LEAFLET SAN TELMO CABA) -->
+        <!-- 5. MAPA OFICIAL DE LA AGENCIA (LEAFLET SAN TELMO CABA) -->
         <section class="card-map-section">
             <div class="map-head-row">
                 <span class="map-title">📍 Punto de Encuentro & Atención</span>
@@ -1116,7 +930,7 @@
             </div>
         </section>
 
-        <!-- CANALES SOCIALES CON ICONO WEB REAL -->
+        <!-- 6. CANALES SOCIALES CON ICONO WEB REAL -->
         <div class="social-buttons-bar">
             <a href="https://www.instagram.com/flordebuenosaires/" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="Instagram">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -1140,7 +954,7 @@
             </a>
         </div>
 
-        <!-- FOOTER -->
+        <!-- 7. FOOTER -->
         <footer class="hub-footer">
             <span class="footer-badge-seal">Flor de Buenos Aires Turismo</span>
             <span class="footer-legal-note">Piedras 625, CABA · Av. Lamadrid y Andrés Baranda, Quilmes</span>
@@ -1149,34 +963,10 @@
 
     </main>
 
-    <!-- MODAL RULETA TURÍSTICA CON BENEFICIOS REALES -->
-    <div class="game-modal-overlay" id="gameModal" onclick="closeGameModal(event)">
-        <div class="game-modal-box" onclick="event.stopPropagation()">
-            <button class="btn-close-modal" onclick="closeGameModal(event)">✕</button>
-            <h2 style="font-family: var(--font-heading); color: var(--fdba-navy); font-size: 1.5rem; text-transform: uppercase;">🎡 Pasaporte Viajero</h2>
-            <p style="font-size: 0.8rem; color: var(--fdba-muted); margin-top: 2px;">Girá la ruleta y obtené un cupón exclusivo para tu próxima reserva.</p>
-            
-            <div class="wheel-container-stage">
-                <div class="wheel-pointer"></div>
-                <canvas id="wheelCanvas" width="270" height="270"></canvas>
-            </div>
-
-            <button class="btn-spin-wheel" id="spinBtn" onclick="spinWheel()">¡GIRAR AHORA!</button>
-
-            <div class="spin-prize-display" id="prizeDisplay">
-                <span style="font-size: 0.72rem; font-weight: 800; color: var(--fdba-navy); text-transform: uppercase;">¡Felicitaciones, ganaste!</span>
-                <span id="prizeTitle" style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 800; color: var(--fdba-magenta);"></span>
-                <a id="claimPrizeBtn" href="#" target="_blank" rel="noopener noreferrer" style="background:#25D366; color:#fff; text-decoration:none; padding:8px 16px; border-radius:8px; font-weight:700; font-size:0.8rem; margin-top:4px;" onclick="handleClaimPrize()">Canjear por WhatsApp ↗</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- MOTOR JS: AUDIOS, MAPA, FILTRADO Y RULETA -->
+    <!-- MOTOR JS: AUDIO DE NAVEGACIÓN, MAPA Y FILTRADO -->
     <script>
-        // 1. MOTORES DE AUDIO NATIVOS: BOTONES Y FANFARRIA GOLD
+        // 1. MOTOR DE AUDIO HÁPTICO PARA BOTONES Y TABS
         const soundEffect = document.getElementById('fdbaButtonSound');
-        const winSoundEffect = document.getElementById('fdbaWinSound');
-        let fadeAudioInterval = null;
 
         function playUiSound() {
             if (soundEffect) {
@@ -1188,36 +978,9 @@
             }
         }
 
-        function playWinFanfare() {
-            if (winSoundEffect) {
-                clearInterval(fadeAudioInterval);
-                winSoundEffect.volume = 1;
-                winSoundEffect.currentTime = 0;
-                winSoundEffect.play().catch(() => {});
-            }
-        }
-
-        // FADE OUT GRADUAL DE LA FANFARRIA AL SALIR O CANJEAR PREMIO
-        function fadeOutWinSound() {
-            if (!winSoundEffect || winSoundEffect.paused) return;
-            clearInterval(fadeAudioInterval);
-            let vol = winSoundEffect.volume;
-            fadeAudioInterval = setInterval(() => {
-                vol -= 0.08;
-                if (vol <= 0.08) {
-                    clearInterval(fadeAudioInterval);
-                    winSoundEffect.pause();
-                    winSoundEffect.currentTime = 0;
-                    winSoundEffect.volume = 1;
-                } else {
-                    winSoundEffect.volume = vol;
-                }
-            }, 30);
-        }
-
         function initButtonSoundTriggers() {
             const clickableElements = document.querySelectorAll(
-                'button, .tab-filter-btn, .btn-whatsapp-hero, .card-game-trigger, .btn-reserve-package, .btn-more-info, .social-circle-btn, .btn-close-modal'
+                'button, .tab-filter-btn, .btn-whatsapp-hero, .btn-reserve-package, .btn-more-info, .social-circle-btn'
             );
             clickableElements.forEach(el => {
                 el.addEventListener('pointerdown', playUiSound, { passive: true });
@@ -1270,132 +1033,9 @@
             });
         }
 
-        // 4. RULETA DE BENEFICIOS TURÍSTICOS
-        const wheelCanvas = document.getElementById('wheelCanvas');
-        const wheelCtx = wheelCanvas.getContext('2d');
-        const prizes = [
-            { label: "$15.000 OFF", code: "FLOR15K", color: "#E2103F" },
-            { label: "10% EN PASEOS", code: "PASEO10", color: "#1E293B" },
-            { label: "MERIENDA FREE", code: "MERIENDAFREE", color: "#E22456" },
-            { label: "$20.000 EN VIAJES", code: "VIAJE20K", color: "#0F172A" },
-            { label: "5% EN ESCAPADA", code: "ESCAPADA5", color: "#EF4375" },
-            { label: "SORPRESA VIAJERA", code: "SORPRESAVIP", color: "#204040" }
-        ];
-
-        let startAngle = 0;
-        let arc = Math.PI / (prizes.length / 2);
-        let spinTimeout = null;
-        let spinAngleStart = 10;
-        let spinTime = 0;
-        let spinTimeTotal = 0;
-        let hasSpun = false;
-
-        function drawWheel() {
-            const outsideRadius = 125;
-            const textRadius = 85;
-            const insideRadius = 25;
-
-            wheelCtx.clearRect(0, 0, 270, 270);
-            wheelCtx.strokeStyle = "#FFFFFF";
-            wheelCtx.lineWidth = 2.5;
-
-            for (let i = 0; i < prizes.length; i++) {
-                const angle = startAngle + i * arc;
-                wheelCtx.fillStyle = prizes[i].color;
-
-                wheelCtx.beginPath();
-                wheelCtx.arc(135, 135, outsideRadius, angle, angle + arc, false);
-                wheelCtx.arc(135, 135, insideRadius, angle + arc, angle, true);
-                wheelCtx.fill();
-                wheelCtx.stroke();
-
-                wheelCtx.save();
-                wheelCtx.fillStyle = "#FFFFFF";
-                wheelCtx.font = "bold 11px 'Barlow Semi Condensed', sans-serif";
-                wheelCtx.translate(135 + Math.cos(angle + arc / 2) * textRadius, 135 + Math.sin(angle + arc / 2) * textRadius);
-                wheelCtx.rotate(angle + arc / 2 + Math.PI / 2);
-                const text = prizes[i].label;
-                wheelCtx.fillText(text, -wheelCtx.measureText(text).width / 2, 0);
-                wheelCtx.restore();
-            }
-
-            wheelCtx.fillStyle = "#FFFFFF";
-            wheelCtx.beginPath();
-            wheelCtx.arc(135, 135, 20, 0, Math.PI * 2, true);
-            wheelCtx.fill();
-            wheelCtx.strokeStyle = "#E2103F";
-            wheelCtx.lineWidth = 3;
-            wheelCtx.stroke();
-        }
-
-        function spinWheel() {
-            if (hasSpun) return;
-            document.getElementById('spinBtn').disabled = true;
-            spinAngleStart = Math.random() * 10 + 18;
-            spinTime = 0;
-            spinTimeTotal = Math.random() * 1500 + 3500;
-            rotateWheel();
-        }
-
-        function rotateWheel() {
-            spinTime += 30;
-            if (spinTime >= spinTimeTotal) {
-                stopRotateWheel();
-                return;
-            }
-            const spinAngle = spinAngleStart - easeOut(spinTime, 0, spinAngleStart, spinTimeTotal);
-            startAngle += (spinAngle * Math.PI / 180);
-            drawWheel();
-            spinTimeout = requestAnimationFrame(rotateWheel);
-        }
-
-        function stopRotateWheel() {
-            cancelAnimationFrame(spinTimeout);
-            const degrees = startAngle * 180 / Math.PI + 90;
-            const arcd = arc * 180 / Math.PI;
-            const index = Math.floor((360 - degrees % 360) / arcd) % prizes.length;
-            const winningPrize = prizes[index];
-
-            hasSpun = true;
-            const prizeDisplay = document.getElementById('prizeDisplay');
-            const prizeTitle = document.getElementById('prizeTitle');
-            const claimBtn = document.getElementById('claimPrizeBtn');
-
-            prizeTitle.innerText = `${winningPrize.label} (CÓDIGO: ${winningPrize.code})`;
-            claimBtn.href = `https://api.whatsapp.com/send?phone=+5491144187007&text=%C2%A1Hola!%20Gané%20el%20beneficio%20de%20la%20Ruleta%3A%20${encodeURIComponent(winningPrize.label)}%20con%20el%20c%C3%B3digo%20${winningPrize.code}%20para%20mi%20pr%C3%B3xima%20reserva!`;
-            prizeDisplay.style.display = "flex";
-            document.getElementById('spinBtn').style.display = "none";
-
-            // REPRODUCIR SONIDO COFFEE BREAK FINISH (GOLD) AL GANAR
-            playWinFanfare();
-        }
-
-        function easeOut(t, b, c, d) {
-            const ts = (t /= d) * t;
-            const tc = ts * t;
-            return b + c * (tc + -3 * ts + 3 * t);
-        }
-
-        // CONTROL DEL MODAL CON FADE OUT AUTOMÁTICO DE AUDIO
-        function openGameModal() {
-            document.getElementById('gameModal').classList.add('active');
-            drawWheel();
-        }
-
-        function closeGameModal(e) {
-            if (e && e.stopPropagation) e.stopPropagation();
-            document.getElementById('gameModal').classList.remove('active');
-            fadeOutWinSound();
-        }
-
-        function handleClaimPrize() {
-            fadeOutWinSound();
-        }
-
         // INICIALIZACIÓN
         window.addEventListener('DOMContentLoaded', () => {
             initFdbaMap();
-            drawWheel();
             initButtonSoundTriggers();
         });
     </script>
